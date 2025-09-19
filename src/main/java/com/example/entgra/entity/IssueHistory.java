@@ -1,5 +1,6 @@
 package com.example.entgra.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -13,6 +14,7 @@ public class IssueHistory {
     private Long id;
 
     @ManyToOne
+    @JsonBackReference
     private Issue issue;
 
     @Enumerated(EnumType.STRING)
