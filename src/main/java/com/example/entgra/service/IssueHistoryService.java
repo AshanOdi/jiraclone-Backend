@@ -18,4 +18,8 @@ public class IssueHistoryService {
     public List<IssueHistory> getHistoryByIssueId(Long issueId) {
         return historyRepository.findByIssueId(issueId);
     }
+
+    public IssueHistory saveHistory(IssueHistory history) {
+        return historyRepository.save(history);
+    }
 }
