@@ -17,6 +17,7 @@ public class Issue {
 
     private String title;
     private String description;
+    private String customer;
 
     @Enumerated(EnumType.STRING)
     private IssueType type;  // BUG, QUESTION, IMPROVEMENT

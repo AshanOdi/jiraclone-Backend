@@ -40,6 +40,7 @@ public class IssueService {
     public Issue updateIssue(Long id, Issue updatedIssue) {
         Issue issue = getIssueById(id);
         issue.setTitle(updatedIssue.getTitle());
+        issue.setCustomer(updatedIssue.getCustomer());
         issue.setDescription(updatedIssue.getDescription());
         issue.setType(updatedIssue.getType());
         issue.setStatus(updatedIssue.getStatus());
