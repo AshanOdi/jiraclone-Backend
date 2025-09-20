@@ -2,7 +2,7 @@ package com.example.entgra.controller;
 
 
 
-import com.example.entgra.dto.IssueDTO;
+
 import com.example.entgra.entity.Issue;
 import com.example.entgra.entity.IssueHistory;
 import com.example.entgra.entity.IssueStatus;
@@ -130,8 +130,8 @@ public class IssueController {
 
      // Update Issue Status
     @PutMapping("/{id}/status")
-    public Issue updateStatus(@PathVariable Long id, @RequestBody IssueDTO status) {
-        return issueService.updateStatus(id, IssueStatus.valueOf(status.getStatus()));
+    public Issue updateStatus(@PathVariable Long id, @RequestBody Issue status) {
+        return issueService.updateStatus(id, IssueStatus.valueOf(String.valueOf(status.getStatus())));
 
     }
 
