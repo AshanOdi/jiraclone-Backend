@@ -1,6 +1,7 @@
 package com.example.entgra.controller;
 
 
+
 import com.example.entgra.dto.IssueDTO;
 import com.example.entgra.entity.Issue;
 import com.example.entgra.entity.IssueHistory;
@@ -127,23 +128,12 @@ public class IssueController {
         issueService.deleteIssue(id);
     }
 
-    // Update Issue Status
+     // Update Issue Status
     @PutMapping("/{id}/status")
     public Issue updateStatus(@PathVariable Long id, @RequestBody IssueDTO status) {
         return issueService.updateStatus(id, IssueStatus.valueOf(status.getStatus()));
 
     }
 
-    // Get Issue History
-    @GetMapping("/{id}/history")
-    public List<IssueHistory> getHistory(@PathVariable Long id) {
-        return historyService.getHistoryByIssueId(id);
-    }
 
-    // Status Summary (for Pie chart)
-    @GetMapping("/status-summary")
-    public Map<IssueStatus, Long> getStatusSummary() {
-        return issueService.getAllIssues().stream()
-                .collect(Collectors.groupingBy(Issue::getStatus, Collectors.counting()));
-    }
 }
